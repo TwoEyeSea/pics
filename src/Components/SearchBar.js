@@ -7,7 +7,6 @@ class SearchBar extends React.Component {
     // "input" the element that using the event handler on
     // "Change" the type of event handler that we're utiilizing for this callback function
     // Some people will use "handleInputChange" instetad
-    console.log(event.target.value);
   }
 
   onInputClick() {
@@ -20,10 +19,11 @@ class SearchBar extends React.Component {
         <form className="ui form">
           <div className="field">
             <label>Image Search</label>
-            <input type="text" placeholder="booya" onClick={this.onInputClick} onChange={this.onInputChange} />
+            <input type="text" placeholder="booya" onChange={(e) => console.log(e.target.value)} />
             {/* Notice that the "this.onInputChange" callback function isn't defined with a set of parentheses "()",  */}
             {/* this is because we don't want to call the function on startUp of the application. This way allows us to call the onInputChange function at a later time  */}
             {/* MAIN TAKEAWAY -> We do not add parentheses when we pass a callback function to onChange */}
+            {/* NB we can use the arrow function alternate event handller syntax anytime we have a single line of code */}
           </div>
         </form>
       </div>
