@@ -6,10 +6,11 @@ class SearchBar extends React.Component {
     placeholder: "Hi there, please define a search parameter",
   };
 
-  onFormSubmit(e) {
+  onFormSubmit = (e) => {
+    // can resolve the issue of the "this" error by calling the function with an arrow function.
     e.preventDefault();
     console.log(this.state.term);
-  }
+  };
 
   render() {
     return (
