@@ -9,7 +9,7 @@ class SearchBar extends React.Component {
   onFormSubmit = (e) => {
     // can resolve the issue of the "this" error by calling the function with an arrow function.
     e.preventDefault();
-    console.log(this.state.term);
+    this.props.onSubmit(this.state.term);
   };
 
   render() {
