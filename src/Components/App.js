@@ -1,7 +1,7 @@
 import React from "react";
-import axios from "axios";
 import unsplash from "../api/unsplash";
 import SearchBar from "./SearchBar";
+import ImageList from "./imageList";
 
 class App extends React.Component {
   state = { images: [] };
@@ -24,7 +24,9 @@ class App extends React.Component {
     return (
       <div className="ui container" style={{ marginTop: "10px" }}>
         <SearchBar onSubmit={this.onSearchSubmit} />
-        Found: {this.state.images.length}
+        <ImageList images={this.state.images} />
+        {/* We define a new prop on the ImageList Component "images={this.state.images}"
+        This passes the array of images from the parent to the component */}
       </div>
     );
   }
