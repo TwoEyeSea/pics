@@ -1,5 +1,6 @@
 import React from "react";
 import axios from "axios";
+import unsplash from "../api/unsplash";
 import SearchBar from "./SearchBar";
 
 class App extends React.Component {
@@ -9,11 +10,9 @@ class App extends React.Component {
 
   onSearchSubmit = async (term) => {
     //Async keyword in front of the event handler indicates that we're going to use async syntax within the function
-    const response = await axios.get("https://api.unsplash.com/search/photos", {
+    const response = await unsplash.get("https://api.unsplash.com/search/photos", {
+      // we can call the custom clinet "unsplash" as shown above.
       params: { query: term },
-      headers: {
-        Authorization: "Client-ID uyojAcvL3i5GzARBDhnFQlQ34joOii7ZE3qUkAjKqjo",
-      },
     });
     console.log(response.data.results);
     // Displays the results array within the console
